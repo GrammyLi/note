@@ -1,5 +1,6 @@
 https://www.bilibili.com/video/BV1e541197oA?spm_id_from=333.999.0.0
 
+```js
 打包时候运行分析：
 在webpack 或者 rollup中， js css 或者图片都是为模块，可以将这些资源打包为一个文件 bundle.js
 
@@ -38,3 +39,5 @@ __webpack_require__(moduleId): 手动实现加载一个模块。
 
 
 __webpack_require__(0): 运行第一个模块，即运行入口模块
+
+```js
