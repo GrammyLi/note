@@ -21,4 +21,22 @@ ESM 模块在静态阶段就被编译并分析模块的依赖关系。这使得�
 
 •
 CJS 模块则在运行时解析和执行，并且可以有条件地导入和导出模块
+
+
+
+
+在浏览器中使用 ES6 的模块化支持，在 Node 中使用 commonjs 的模块化支持
+
+
+es6: import / export
+commonjs: require / module.exports / exports
+
+
+require与import的区别
+
+require支持 动态导入，import不支持，正在提案 (babel 下可支持)
+require是 同步 导入，import属于 异步 导入
+require是 值拷贝，导出值变化不会影响导入值；import指向 内存地址，导入值会随导出值而变化
+
+ 
  
