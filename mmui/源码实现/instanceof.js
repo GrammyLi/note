@@ -1,15 +1,15 @@
 function fakeInstanceOf(instance, parent) {
-    if (typeof instance !== "object" && typeof instance !== "function") {
+  if (typeof instance !== "object" && typeof instance !== "function") {
+    return false;
+  }
+  let proto = instance?.__proto__ || null;
+  while (true) {
+    if (proto === null) {
       return false;
     }
-    let proto = instance?.__proto__ || null;
-    while (true) {
-      if (proto === null) {
-        return false;
-      }
-      if (proto === parent.prototype) {
-        return true;
-      }
-      proto = proto.__proto__;
+    if (proto === parent.prototype) {
+      return true;
     }
+    proto = proto.__proto__;
   }
+}
