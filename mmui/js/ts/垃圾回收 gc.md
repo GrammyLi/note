@@ -27,3 +27,12 @@ function fn() {
     b.pro = a;
 }
 fn();
+
+https://q.shanyue.tech/fe/js/293
+
+Scavenge（清除）回收机制：
+
+Scavenge是一种针对新生代对象的垃圾回收策略。V8将堆内存分为新生代（young generation）和老生代（old generation）。新生代内存主要用于存储生命周期较短的对象。Scavenge使用的是复制算法（copying algorithm），它将新生代内存进一步分为两个区域：From空间和To空间。垃圾回收时，存活的对象会从From空间复制到To空间，然后清空From空间，这样可以有效地减少内存碎片。
+Mark-Sweep（标记-清除）回收机制：
+
+Mark-Sweep主要用于清理老生代对象。当堆内存中对象变得老化，进入老生代后，V8会使用Mark-Sweep算法。该算法分为两个阶段：首先是标记阶段，它遍历堆中的所有对象，并标记出仍然存活的对象；然后是清除阶段，回收那些未被标记的对象的内存。
