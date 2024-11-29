@@ -28,5 +28,3 @@ async function asyncSum(a, b) {
 
 sum(3, 4);
 asyncSum(3, 4);
-
-

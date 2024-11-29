@@ -45,3 +45,39 @@ function longer(nums) {
 const nums = [10, 9, 2, 5, 3, 7, 101, 18];
 const lis = longer(nums);
 console.log(lis); // 输出：[2, 3, 7, 101] 或者其他可能的递增子序列，只要它是最长的
+
+// 求最长递增子序列的函数
+function longestIncreasingSubsequence(nums) {
+  if (nums.length === 0) {
+    return 0;
+  }
+
+  // 1. 初始化dp数组
+  let dp = new Array(nums.length).fill(0);
+  // 正确的初始化应该是每个元素先初始化为1，表示以当前元素结尾的最长递增子序列长度至少为1
+  // 但如果像面试时想当然均赋值为0，后续计算就会出错
+
+  // 2. 动态规划计算dp数组的值
+  for (let i = 0; i < nums.length; i++) {
+    dp[i] = 1; // 先默认以当前元素结尾的最长递增子序列长度为1
+    for (let j = 0; j < i; j++) {
+      if (nums[j] < nums[i]) {
+        // 如果前面的元素小于当前元素，可以尝试更新dp[i]的值
+        dp[i] = Math.max(dp[i], dp[j] + 1);
+      }
+    }
+  }
+
+  // 3. 找到dp数组中的最大值，即为最长递增子序列的长度
+  let maxLength = 0;
+  for (let i = 0; i < dp.length; i++) {
+    maxLength = Math.max(maxLength, dp[i]);
+  }
+
+  return maxLength;
+}
+
+// 示例用法
+// let nums = [10, 9, 2, 5, 3, 7, 101, 18];
+let result = longestIncreasingSubsequence(nums);
+console.log("最长递增子序列的长度为:", result);

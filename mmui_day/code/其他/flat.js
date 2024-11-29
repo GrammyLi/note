@@ -17,6 +17,4 @@ let testArr = [1, [2, 3], [4, [5]]];
 let res = flat(testArr, 2);
 console.log(res);
 
-
-
 // 入参：arr， depth 拍平到只有一层

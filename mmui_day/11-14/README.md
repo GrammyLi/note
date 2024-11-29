@@ -4,7 +4,7 @@
 1. number
 2. string
 3. boolean
-4. object
+4.
 5. undefined
 6. Symbol
 7. BigInt
