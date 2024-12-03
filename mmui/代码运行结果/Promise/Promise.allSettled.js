@@ -20,3 +20,31 @@ function allSettled(promises) {
     }
   });
 }
+
+function all(promises) {
+  return new Promise((resolve, reject) => {
+    const results = [];
+    const len = promises.length;
+    let completedCount = 0;
+
+    if (len === 0) {
+      resolve(results);
+      return;
+    }
+
+    for (let i = 0; i < len; i++) {
+      promises[i]
+        .then((value) => {
+          results.push(value);
+          completedCount++;
+
+          if (completedCount === len) {
+            resolve(results);
+          }
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    }
+  });
+}
