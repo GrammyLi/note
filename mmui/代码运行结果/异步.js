@@ -17,3 +17,5 @@ promise
   .catch(() => console.log(8)) // 前面的catch和then都没有抛错，所以不会执行
   .then(() => console.log(9));
 console.log(10);
+
+ // 2, 4, 10 (同步任务),  5, 7, 9,（微任务） 1（宏任务）
