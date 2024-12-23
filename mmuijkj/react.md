@@ -12,4 +12,35 @@
 
 2. 未匹配到 key 则删除重建 性能较差
 
+## Redux 基本概念
 
+1. store 单一的数据源
+
+2. action {type: 'INCREMENT', payload: 1}
+
+3. reducer 是一个纯函数
+
+## React 生命周期
+
+1. 挂载阶段 Mounting
+
+```shell
+constructor
+componentWillMount
+render
+componentDidMount
+```
+
+2. 更新 updating
+
+```shell
+componentWillReceiveProps
+shouldComponentUpdate
+componentWillUpdate
+render
+componentDidUpdate
+```
+
+3. 卸载阶段（Unmounting）
+
+componentWillUnmount
