@@ -44,3 +44,14 @@ componentDidUpdate
 3. 卸载阶段（Unmounting）
 
 componentWillUnmount
+
+
+## diff算法
+
+https://juejin.cn/post/7114177684434845727?searchId=2024083021533382EFDD5549BFE0DC35E4#heading-1
+
+
+## 虚拟 dom 的优缺点
+
+缺点：首次渲染较慢
+优点：减少 DOM 操作、减少回流与重绘， 性能下限保证和局部更新能力

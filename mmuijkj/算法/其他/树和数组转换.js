@@ -25,9 +25,11 @@ const ArrayToTree2 = (arr, parentId = 0) => {
     .filter((item) => item.parentId === parentId) // 找到当前父节点的直接子节点
     .map((item) => ({
       ...item,
-      children: ArrayToTree(arr, item.id), // 递归寻找子节点
+      children: ArrayToTree2(arr, item.id), // 递归寻找子节点
     }));
 };
+
+// https://juejin.cn/post/7450309922795274267?searchId=20241225161811D9EFC2635A9BF181E76A
 
 function ArrayToTree(arr = []) {
   // 遍历查找太慢 使用map
@@ -169,3 +171,16 @@ let r = [
     ],
   },
 ];
+
+function flattenTree(tree) {
+  return tree.reduce((acc, item) => {
+    acc.push({ id: item.id, name: item.name, parentId: item.parentId });
+    if (item.children) {
+      acc = acc.concat(flattenTree(item.children));
+    }
+    return acc;
+  }, []);
+}
+
+const flatArray = flattenTree(tree);
+console.log(flatArray);
