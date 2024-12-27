@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Vdom = {
+        id: "x",
+        tag: "h1",
+        attr: "最大的标签",
+        note: "内容是：最大的标签H1",
+        children: [
+          {
+            tag: "p",
+            id: "y",
+            note: "P标签的内容",
+            children: [
+              {
+                id: "1",
+                tag: "h1",
+                note: "z",
+                children: [
+                  {
+                    id: "2",
+                    tag: "h2",
+                    note: "2",
+                    children: [
+                      {
+                        id: "3",
+                        tag: "h3",
+                        note: "3",
+                        children: [
+                          {
+                            id: "4",
+                            tag: "h4",
+                            note: "4",
+                            children: [
+                              {
+                                id: "5",
+                                tag: "h5",
+                                note: "5",
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      };
+
+      let addNote = function (node) {
+        let link = document.createElement(node.tag);
+        link.setAttribute("id", node.id);
+        link.setAttribute("attr", node.attr);
+        link.textContent = node.note;
+        document.body.appendChild(link);
+        if (node.children) {
+          for (let i = 0; i < node.children.length; i++) {
+            addNote(node.children[i]);
+          }
+        }
+      };
+
+      addNote(Vdom);
+
+      let addNote2 = function (node) {
+        let setHtml = function (node) {
+          let link = document.createElement(node.tag);
+          link.setAttribute("id", node.id);
+          link.setAttribute("attr", node.attr);
+          link.innerHTML(node.note);
+        };
+        setHtml(node);
+        if (node.children) {
+          for (let i = 0; i < node.length; i++) {
+            setHtml(node[i]);
+          }
+        }
+      };
+
+      addNote2(Vdom);
+    </script>
+  </body>
+</html>
