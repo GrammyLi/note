@@ -1,17 +1,25 @@
-http1.0 
+## http1.0 
+
 主要使用 header 里的 If-Modified-Since（协商缓存请求标识）, Expires（强缓存） 来做为缓存判断的标准
 支持get post 方法
 
-http1.1 
+## http1.1 
+
 cache Control、 Etag、If-None-Match 等更多可供选择的缓存头来控制缓存策略
+
 支持长链接Connection: keep-alive, 一次TCP链接多次请求
+
 断点续传，传完之后返回状态码206
+
 支持新的方法 PUT、HEAD、OPTIONS 等，可用于restful api
 
-http2.0
+## http2.0
+
 可以压缩header减少体积
 新的二进制格式(Binary Format)：2.0 基于二进制解析，1.x 基于文本解析
+
 多路复用: 一个request对应一个id，这样一个连接上可以有多个request（类似CPU时间片）一次tcp连接中可以多个http并行请求
+
 降低了慢启动的影响（只有一个链接，越来越快）
 服务端推送
 需要主动配置（nginx: http2_push /style.css;
