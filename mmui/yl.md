@@ -13,3 +13,15 @@ https://juejin.cn/post/7427865237439643689?searchId=202410231848061F2E0679AB9CE7
 
 
 https://juejin.cn/post/7431450163153387570?searchId=20241104145140E4987CE3A28C2513E8B9#heading-2
+
+
+
+https://juejin.cn/post/7490506373899894838#heading-11
+
+// 浏览器渲染流水线
+1. 组件渲染 → 2. DOM更新 → 3. 浏览器绘制 → 4. useEffect执行
+                                      ↗
+useLayoutEffect插队 → 2.5. useLayoutEffect执行
+
+useLayoutEffect：在DOM更新后立即修正位置，避免视觉错位
+useEffect：可能等到下一帧才调整，用户会看到闪烁
