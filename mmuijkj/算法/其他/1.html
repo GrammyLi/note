@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Vdom = {
+        id: "x",
+        tag: "h1",
+        attr: "最大的标签",
+        note: "内容是：最大的标签H1",
+        children: [
+          {
+            tag: "p",
+            id: "y",
+            note: "P标签的内容",
+            children: [
+              {
+                id: "1",
+                tag: "h1",
+                note: "z",
+                children: [
+                  {
+                    id: "2",
+                    tag: "h2",
+                    note: "2",
+                    children: [
+                      {
+                        id: "3",
+                        tag: "h3",
+                        note: "3",
+                        children: [
+                          {
+                            id: "4",
+                            tag: "h4",
+                            note: "4",
+                            children: [
+                              {
+                                id: "5",
+                                tag: "h5",
+                                note: "5",
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      };
+
+      const addNote = function (node, parentElement) {
+        // 创建当前节点的 DOM 元素
+        const element = document.createElement(node.tag);
+
+        // 设置属性
+        if (node.id) {
+          element.id = node.id;
+        }
+        if (node.attr) {
+          element.setAttribute("attr", node.attr);
+        }
+        if (node.note) {
+          element.textContent = node.note; // 使用 textContent 设置文本内容
+        }
+
+        // 将当前元素添加到父元素中
+        if (parentElement) {
+          parentElement.appendChild(element);
+        } else {
+          // 如果没有父元素，则将当前元素作为根元素添加到 body 中
+          document.body.appendChild(element);
+        }
+
+        // 递归处理子节点
+        if (node.children && node.children.length > 0) {
+          for (let i = 0; i < node.children.length; i++) {
+            addNote(node.children[i], element); // 将当前元素作为父元素传递
+          }
+        }
+      };
+
+      // 调用函数，将虚拟 DOM 转换为实际 DOM 并挂载到页面上
+      addNote(Vdom);
+    </script>
+  </body>
+</html>

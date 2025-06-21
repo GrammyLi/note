@@ -1,7 +1,6 @@
 useState 的原理是什么，背后怎么执行的，它怎么保证一个组件中写多个 useState 不会串
 
 
-
 useState 是 React 中的一个 Hook，用于在函数组件中添加状态。它的原理是通过闭包和 JavaScript 的特性来实现的。
 
 当你在函数组件中调用 useState 时，React 会为每个调用 useState 的组件实例创建一个状态变量，并为这个变量提供对应的更新函数。React 使用 Fiber 架构来管理组件的状态和更新。当组件第一次渲染时，React 会调用 useState 来初始化组件的状态，并将状态变量保存在内部数据结构中。每次组件重新渲染时，React 会根据组件内部状态的变化来决定是否重新计算组件的 UI 并更新 DOM。
