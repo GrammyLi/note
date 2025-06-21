@@ -18,37 +18,6 @@ const ensure = function (condition, message) {
   }
 };
 
-const groupConsecutiveNumbers1 = (numbers) => {
-  if (!numbers || numbers?.length === 0) {
-    return [];
-  }
-
-  let m = new Map();
-  let r = [];
-
-  numbers.forEach((n) => m.set(n, false));
-
-  let start = null;
-
-  for (let i = 0; i < numbers.length; i++) {
-    let n = numbers[i];
-    if (start === null) {
-      start = n; // 初始化连续区间的起始数字
-    }
-
-    if (!m.has(n + 1)) {
-      // 如果连续区间只有一个数字，就直接加这个数字
-      r.push(`${start}`);
-    } else {
-      r.push(`${start}-${n}`);
-    }
-
-    start = null;
-  }
-
-  return r;
-};
-
 // 判断一组数字是否连续
 const groupConsecutiveNumbers = (numbers) => {
   // 如果输入为空数组，返回空数组
