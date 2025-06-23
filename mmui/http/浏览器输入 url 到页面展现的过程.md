@@ -30,3 +30,7 @@
 - 将 DOM Tree 和 CSSOM 整合成 Render Tree
 - 根据 Render Tree 渲染页面
 - 遇到<script>则暂停渲染，优先加载并执行 js 代码，完成再继续
+
+
+
+https://chat.deepseek.com/a/chat/s/604b90bf-f8f9-403e-a9a4-15eb38877d74

@@ -39,7 +39,7 @@ SameSite
 
 如果没有 maxAge，则 cookie 的有效时间为会话时间。
 
-SameSite Cookie 有哪些值，是如何预防 CSRF 攻击的
+## SameSite Cookie 有哪些值，是如何预防 CSRF 攻击的
 None: 任何情况下都会向第三方网站请求发送 Cookie
 Lax: 只有导航到第三方网站的 Get 链接会发送 Cookie，跨域的图片、iframe、form表单都不会发送 Cookie
 Strict: 任何情况下都不会向第三方网站请求发送Cookie
